@@ -16,4 +16,4 @@
 ### 预告
 - CppQt_OpenVINO_YOLOv8_Image_OBB: 旋转矩形框目标预测
 - 新建一个分支使用CMake代替QMake
-- 计划将![openvino_notebooks](https://github.com/openvinotoolkit/openvino_notebooks)中的所有模型都用C++推理一遍
+- 计划将[openvino_notebooks](https://github.com/openvinotoolkit/openvino_notebooks)中的所有模型都用C++推理一遍
