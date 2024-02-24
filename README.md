@@ -1,5 +1,5 @@
 # OpenVINO_yolov8
-用OpenVINO对yolov8导出的onnx模型进行C++的推理, 任务包括图像分类, 目标识别和语义分割, 步骤包括图片前处理, 推理, NMS等.
+用OpenVINO对yolov8导出的onnx模型进行C++的推理. 任务包括图像分类, 目标检测, 实例分割, 人体姿态检测, 和旋转矩形框目标预测. 步骤包括图片前处理, 推理, NMS等.
 
 ### 编译环境
 - Windows 10
@@ -16,4 +16,4 @@
 
 ### 预告
 - 新建一个分支使用CMake代替QMake
-- 计划将[openvino_notebooks](https://github.com/openvinotoolkit/openvino_notebooks)中的所有模型都用C++推理一遍
+- 将[openvino_notebooks](https://github.com/openvinotoolkit/openvino_notebooks)中的所有模型都用C++推理一遍
