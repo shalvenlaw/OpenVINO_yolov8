@@ -68,9 +68,6 @@ float fill_tensor_data_image(ov::Tensor &input_tensor, const cv::Mat &input_imag
         convert(input_image, blob_image, true, true);
         cv::warpAffine(blob_image, blob_image, matrix, cv::Size(width, height));
     }
-//    cv::imshow("input_image", input_image);
-//    cv::imshow("blob_image", blob_image);
-//    cv::waitKey(0);
 
     /// 将图像数据填入input_tensor
     float *const input_tensor_data = input_tensor.data<float>();
@@ -185,16 +182,20 @@ int main(int argc, char **argv)
         }
         // NMS, 消除具有较低置信度的冗余重叠框
         std::vector<int> indexes;
-        cv::dnn::NMSBoxes(boxes, confidences, 0.25, 0.45, indexes);
+        cv::dnn::NMSBoxes(boxes, confidences, 0.25f, 0.45f, indexes);
         for (size_t i = 0; i < indexes.size(); i++) {
             const int index = indexes[i];
-            const int idx = class_ids[index];
-            cv::rectangle(image, boxes[index], cv::Scalar(0, 0, 255), 2, 8);
-            cv::rectangle(image, cv::Point(boxes[index].tl().x, boxes[index].tl().y - 20),
-                          cv::Point(boxes[index].br().x, boxes[index].tl().y), cv::Scalar(0, 255, 255), -1);
-            cv::putText(image, class_names[idx], cv::Point(boxes[index].tl().x, boxes[index].tl().y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0));
+            const cv::Rect &box = boxes[index];
+            // 绘制矩形框
+            cv::rectangle(image, box, cv::Scalar(0, 0, 255), 2, 8);
+            // 绘制标签
+            const std::string label = class_names[class_ids[index]] + ":" + std::to_string(confidences[index]).substr(0, 4);
+            const cv::Size textSize = cv::getTextSize(label, cv::FONT_HERSHEY_SIMPLEX, 0.5, 1, nullptr);
+            const cv::Rect textBox(box.tl().x, box.tl().y - 15, textSize.width, textSize.height + 5);
+            cv::rectangle(image, textBox, cv::Scalar(0, 255, 255), cv::FILLED);
+            cv::putText(image, label, cv::Point(box.tl().x, box.tl().y - 5), cv::FONT_HERSHEY_SIMPLEX, 0.5,
+                        cv::Scalar(0, 0, 0));
         }
-
         // 计算FPS
         const float t = (cv::getTickCount() - start) / static_cast<float>(cv::getTickFrequency());
         std::cout << "Infer time(ms): " << t * 1000 << "ms; Detections: " << indexes.size() << std::endl;

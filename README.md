@@ -12,8 +12,8 @@
 - CppQt_OpenVINO_YOLOv8_Image_Detection: 目标检测
 - CppQt_OpenVINO_YOLOv8_Image_Segmentation: 实例分割
 - CppQt_OpenVINO_YOLOv8_Image_Pose: 人体姿态检测
+- CppQt_OpenVINO_YOLOv8_Image_OBB: 旋转矩形框目标预测
 
 ### 预告
-- CppQt_OpenVINO_YOLOv8_Image_OBB: 旋转矩形框目标预测
 - 新建一个分支使用CMake代替QMake
 - 计划将[openvino_notebooks](https://github.com/openvinotoolkit/openvino_notebooks)中的所有模型都用C++推理一遍
