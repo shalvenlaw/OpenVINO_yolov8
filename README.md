@@ -9,10 +9,25 @@
 
 ### 各个项目简介
 - CppQt_OpenVINO_YOLOv8_Image_Classification: 图像分类
+
+![效果图](result/CppQt_OpenVINO_YOLOv8_Image_Classification.jpg)
+
 - CppQt_OpenVINO_YOLOv8_Image_Detection: 目标检测
+
+![效果图](result/CppQt_OpenVINO_YOLOv8_Image_Detection.jpg)
+
 - CppQt_OpenVINO_YOLOv8_Image_Segmentation: 实例分割
+ 
+![效果图](result/CppQt_OpenVINO_YOLOv8_Image_Segmentation.jpg)
+
 - CppQt_OpenVINO_YOLOv8_Image_Pose: 人体姿态检测
+ 
+![效果图](result/CppQt_OpenVINO_YOLOv8_Image_Pose.jpg)
+
 - CppQt_OpenVINO_YOLOv8_Image_OBB: 旋转矩形框目标预测
+
+![效果图](result/CppQt_OpenVINO_YOLOv8_Image_OBB.jpg)
+
 
 ### 预告
 - 新建一个分支使用CMake代替QMake
