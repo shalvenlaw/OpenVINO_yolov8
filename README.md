@@ -30,5 +30,4 @@
 
 
 ### 预告
-- 新建一个分支使用CMake代替QMake
 - 将[openvino_notebooks](https://github.com/openvinotoolkit/openvino_notebooks)中的所有模型都用C++推理一遍
